@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Bloom</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="travel_recommendation.js"></script>
+    <script>
+        let jsonData = null;
+
+window.onload = function() {
+    fetch('travel_recommendation_api.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            jsonData = data;
+            console.log('JSON loaded successfully', data);
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+            document.getElementById('resultContainer').innerHTML = '<p>Failed to load travel data.</p>';
+        });
+};
+
+function filterResults() {
+    const searchValue = document.getElementById('searchBox').value.toLowerCase();
+    const resultContainer = document.getElementById('resultContainer');
+    let html = '';
+
+    if (!jsonData) {
+        resultContainer.innerHTML = 'Loading data...';
+        return;
+    }
+
+    if (searchValue.includes('country')) {
+        html += displayCountries(jsonData.countries);
+    }
+    if (searchValue.includes('temple')) {
+        html += displayTemples(jsonData.temples);
+    }
+    if (searchValue.includes('beach')) {
+        html += displayBeaches(jsonData.beaches);
+    }
+
+    if (!html) {
+        html = '<p>No matching results found. Please search for "country", "temple", or "beach".</p>';
+    }
+
+    resultContainer.innerHTML = html;
+}
+
+function displayCountries(countries) {
+    let html = '<div class="container"><h2>Countries</h2>';
+    countries.forEach(country => {
+        html += `<h3>${country.name}</h3>`;
+        country.cities.forEach(city => {
+            html += `
+                <p><strong>${city.name}</strong></p>
+                <p><img src="${city.imageUrl}" alt="${city.name}" style="width:100px;height:100px;"></p>
+                <p>${city.description}</p>`;
+        });
+    });
+    html += '</div>';
+    return html;
+}
+
+function displayTemples(temples) {
+    let html = '<div class="container"><h2>Temples</h2>';
+    temples.forEach(temple => {
+        html += `
+            <p><strong>${temple.name}</strong></p>
+            <p><img src="${temple.imageUrl}" alt="${temple.name}" style="width:100px;height:100px;"></p>
+            <p>${temple.description}</p>`;
+    });
+    html += '</div>';
+    return html;
+}
+
+function displayBeaches(beaches) {
+    let html = '<div class="container"><h2>Beaches</h2>';
+    beaches.forEach(beach => {
+        html += `
+            <p><strong>${beach.name}</strong></p>
+            <p><img src="${beach.imageUrl}" alt="${beach.name}" style="width:100px;height:100px;"></p>
+            <p>${beach.description}</p>`;
+    });
+    html += '</div>';
+    return html;
+}
+
+function clearResults() {
+    document.getElementById('searchBox').value = '';
+    document.getElementById('resultContainer').innerHTML = '';
+}
+    </script>
+
+    <div id="resultContainer"></div>   
+
+    <div class="container">
+        <div class="navbar">
+            <div class="header">
+                <i class="fas fa-plane"></i> 
+                <a id="travelbloom">TravelBloom</a>
+            </div>
+            <ul>
+                <li><a href="#" id="home" onclick="loadContent('home')">Home</a></li>
+                <li><a href="#" id="about" onclick="loadContent('about')">About Us</a></li>
+                <li><a href="#" id="contact" onclick="loadContent('contact')">Contact Us</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" id="searchBox" placeholder="e.g. country, temple, beach">
+                <button type="button" id="searchButton" onclick="filterResults()">Search</button> 
+                <button type="button" onclick="clearResults()">Clear</button>
+            </div>
+            <div class="vertical-line"></div>
+        </div>
+
+        <div id="content" class="content">
+            <div class="heading">
+                <h1>DISCOVER YOUR DREAM DESTINATION</h1>
+            </div>
+            <div class="about">
+                <h3>Our travel website offers a curated collection of destinations, travel tips, and personalized itineraries. Whether you're seeking a relaxing beach getaway or an exciting city exploration, we've got you covered. Start planning your dream vacation today!</h3>
+            </div>
+            <div class="booknow">
+                <button type="button">BOOK NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-icons">
+        <!-- Social Media Icons -->
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+
+</div>
+
+</body>
+</html>

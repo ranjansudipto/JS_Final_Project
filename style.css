@@ -1,0 +1,565 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    background: linear-gradient(to right, rgba(140, 241, 216, 0.8), rgba(199, 233, 7, 0) 20%, rgba(210, 233, 6, 0) 80%, rgba(140, 241, 216, 0.8)) , 
+    url(tajmahal_HD2.avif);
+    padding: 0;
+    margin:0;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.navbar{
+    width: 100%;/* Ensure navbar spans the full width */
+    position: fixed; /* Fix it to the top of the page */
+    background-color: rgb(61, 59, 59);
+    color:white;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;/* Ensure navbar stays on top of other content */
+    max-height: 45px;
+    position: fixed;
+    top: 0px;
+    
+}
+
+.header{
+    font-family: 'Playfair Display', sans-serif; /* Use a modern, stylish font */
+    font-size: 25px; /* Slightly larger font size */
+    /*text-transform: uppercase; /* Convert text to uppercase for a bold effect */
+    letter-spacing: 2px; /* Add letter spacing for a clean look */
+    font-style: italic;
+    color: #50e4dd; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+    background: linear-gradient(to right); /* Gradient background */
+    /*color: transparent; /* Make the actual text color transparent */
+    padding: 10px 0;
+    font-weight: 600; /* Slightly thicker font weight */
+}
+
+.header i{
+    margin-right: 5px; /* Add space between icon and text */
+    color: #50e4dd;
+    margin-left: 10px;
+}
+
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar ul li{
+    margin-right: 20px;
+}
+
+.navbar ul li a{
+    color:white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover{
+    color: aqua;
+}
+
+.search-bar{
+    display: flex;
+    align-items: left;
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;   /* Ensure no overflow from child elements */
+    border: 2px solid #ccc;   /* Add a border around the search bar */
+    width: 100%; /*search bar length*/
+    max-width: 380px
+}
+
+.search-bar input[type="text"]{
+    padding: 8px;
+    border-radius: 1px;
+    border: none;
+    font-size: 14px;
+    width: 100%; /* Make the input take full width of its container */
+    outline: none;
+    /*flex-grow: 1px; /* This ensures input expands to fill available space */
+    min-width:0;
+    
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    background-color: #4781ff; 
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px; /* Space between input and button */
+    align-items: right;
+}
+
+.search-bar button:hover {
+    background-color: #ff4500; /* Darker red on hover */
+}
+
+
+.heading {
+    position: fixed;
+    left: 120px; /* Distance from the left */
+    top: 30%; /* Position vertically in the middle */
+    transform: translateY(-50%); /* Center vertically */
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 600; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #faf7f7; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 500px; /* Limit the width so the text wraps */
+    word-wrap: break-word; /* Ensures long words break properly */
+    white-space: normal; /* Allow the text to wrap onto the next line */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    
+}
+
+.about {
+    position: fixed;
+    left: 120px; /* Distance from the left */
+    top: 65%; /* Position vertically in the middle */
+    transform: translateY(-50%); /* Center vertically */
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 15px; /* Large and bold font size */
+    font-weight: 600; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #f0f2f5; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 500px; /* Limit the width so the text wraps */
+    word-wrap: break-word; /* Ensures long words break properly */
+    white-space: normal; /* Allow the text to wrap onto the next line */
+}
+
+.booknow button {
+    position: fixed;
+    left: 120px;
+    top: 85%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    padding: 8px 15px;
+    background-color: #098b87;
+    color: #f0f2f5;
+    font-weight: bold;    
+
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    top: 80px;
+    flex-direction: column;
+    margin-top: 300px;
+    margin-left: 30px;
+    position: fixed;
+    
+}
+
+.social-icons a {
+    color: white; /* White icons */
+    font-size: 30px; /* Size of the icons */
+    text-decoration: none; /* Remove underline */
+    
+}
+
+.social-icons a:hover {
+    color: #ff4500; /* Change icon color on hover */
+}
+
+.vertical-line {
+    width: 2px;
+    height: 200px;
+    background-color: white;
+    margin-top: 300px;
+    margin-left: 39px;
+    gap: 150px;
+    position: fixed;
+    align-items: center;
+}
+
+.heading-1 {
+    position: fixed;
+    left: 140px; /* Distance from the left */
+    top: 20%; /* Position vertically in the middle */
+    transform: translateY(-50%); /* Center vertically */
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 600; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 500px; /* Limit the width so the text wraps */
+    word-wrap: break-word; /* Ensures long words break properly */
+    white-space: normal; /* Allow the text to wrap onto the next line */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    
+}
+
+.about-us {
+    position: fixed;
+    padding: 20px;
+    border-radius: 8px;
+    left: 120px; /* Distance from the left */
+    top: 40%; /* Position vertically in the middle */
+    transform: translateY(-50%); /* Center vertically */
+    font-family: 'Arial', sans-serif; /* Stylish font */
+    font-size: 15px; /* Large and bold font size */
+    font-weight: lighter; /* Bold font weight */
+    letter-spacing: 1px; /* Add letter spacing for clean look */
+    color: #f0f2f5; 
+    text-shadow: 2px 2px 4px rgba(7, 7, 7, 0.2); /* Subtle shadow */
+    max-width: 1200px; /* Limit the width so the text wraps */
+    word-wrap: break-word; /* Ensures long words break properly */
+    white-space: normal; /* Allow the text to wrap onto the next line */
+    background-color: rgba(14, 13, 13, 0.2);
+}
+
+.team {
+    position: fixed;
+    left: 120px; /* Distance from the left */
+    top: 70%; /* Position vertically in the middle */
+    transform: translateY(-50%); /* Center vertically */
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 18px; /* Large and bold font size */
+    font-weight: 600; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 120px; /* Limit the width so the text wraps */
+    word-wrap: break-word; /* Ensures long words break properly */
+    white-space: normal; /* Allow the text to wrap onto the next line */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.team-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    margin-top: 35%;
+    margin-right: 130px;
+    
+}
+
+.team-member {
+    background-color: rgba(75, 75, 72, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 254, 254, 0.1);
+    width: 280px;
+    margin: 15px;
+    padding: 20px;
+    text-align: left;
+    top: 60%;
+    left: 350px;
+    position: relative;
+}
+
+
+.team-member h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #f0f3f5;
+}
+
+.designation {
+    color: #f0f3f5;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 14px;
+    color: #f8f2f2;
+}
+
+.contact-icon {
+    margin-top: 15px;
+}
+
+.contact-icon a {
+    color: #4781ff;
+    margin-right: 10px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.contact-icon a:hover {
+    color: #ff4500;
+}
+
+.contact-us {
+    position: fixed;
+    left: 140px; /* Distance from the left */
+    top: 50%; /* Position vertically in the middle */
+    transform: translateY(-50%); /* Center vertically */
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 600; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 500px; /* Limit the width so the text wraps */
+    word-wrap: break-word; /* Ensures long words break properly */
+    white-space: normal; /* Allow the text to wrap onto the next line */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    
+}
+
+.contact-form {
+    background-color: rgba(63, 62, 62, 0.2);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 50%;
+    position: absolute;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+    background-color: rgba(63, 62, 62, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #4781ff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #ff4500;
+}
+
+.contact-form .input-label {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #f8f5f5;
+    display: block;
+}
+
+/* Result container styles */
+#resultContainer {
+  /*  margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    */
+    height: 100vh;
+    background: linear-gradient(to right, rgba(140, 241, 216, 0.8), rgba(199, 233, 7, 0) 20%, rgba(210, 233, 6, 0) 80%, rgba(140, 241, 216, 0.8)) , 
+    url(tajmahal_HD2.avif);
+    padding: 0;
+    margin-left:0;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Styling each result section */
+.result-section {
+    margin-bottom: 20px;
+    margin-left: 1000px;
+}
+
+.result-section h2 {
+    color: #333;
+    border-bottom: 2px solid #faf7f7;
+    padding-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-left: 0;
+}
+
+/* Country styling */
+.country {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 60; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+.city {
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 15px; /* Large and bold font size */
+    font-weight: 60; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+.city-name {
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 18px; /* Large and bold font size */
+    font-weight: 60; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+.city-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.city-description {
+    font-family: 'Arial', sans-serif; /* Stylish font */
+    font-size: 14px; /* Large and bold font size */
+    font-weight: 300; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+/* Temple styling */
+.temple {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 60; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+.temple-name {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 60; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+.temple-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.temple-description {
+    font-family: 'Arial', sans-serif; /* Stylish font */
+    font-size: 14px; /* Large and bold font size */
+    font-weight: 300; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+/* Beach styling */
+.beach {
+    margin-bottom: 20px;
+}
+
+.beach-name {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 25px; /* Large and bold font size */
+    font-weight: 60; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+.beach-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.beach-description {
+    font-family: 'Arial', sans-serif; /* Stylish font */
+    font-size: 14px; /* Large and bold font size */
+    font-weight: 300; /* Bold font weight */
+    letter-spacing: 3px; /* Add letter spacing for clean look */
+    color: #ffffff;
+}
+
+/* Add padding around images for a cleaner look */
+.city-image, .temple-image, .beach-image {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+/*#resultContainer {
+    position: relative;
+    z-index: 50;  /* Make sure the results are in front of the background */
+    /*background-color: rgba(255, 255, 255, 0.8);  /* Add background to results for better readability */
+   /* padding: 20px;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;}
+*/
+/*.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0; /* Start from the right side */
+   /* left: 0;
+    width: 40%; /* Cover 40% of the image's width */
+   /* height: 100%;
+    background: linear-gradient(to left, rgba(86, 197, 248, 0.6), rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, rgba(86, 197, 248, 0.6), rgba(0, 0, 0, 0));
+    z-index: 1;
+}*/
